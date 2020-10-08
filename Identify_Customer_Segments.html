@@ -13145,7 +13145,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[19]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># import libraries here; add more as necessary</span>
@@ -13174,7 +13174,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[1]:</div>
+    <div class="prompt output_prompt">Out[19]:</div>
 
 
 
@@ -13222,7 +13222,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[50]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load in the general demographics data.</span>
@@ -14787,7 +14787,7 @@ Length: 891221, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[51]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Identify missing or unknown data values and convert them to NaNs.</span>
@@ -15036,7 +15036,7 @@ Length: 85, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[52]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Perform an assessment of how much missing data there is in each column of the</span>
@@ -15054,7 +15054,7 @@ Length: 85, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="prompt input_prompt">In&nbsp;[53]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">nan_vals_sorted</span> <span class="o">=</span> <span class="n">nan_vals</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
@@ -15067,7 +15067,7 @@ Length: 85, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[54]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">vals</span> <span class="o">=</span> <span class="n">nan_vals_sorted</span><span class="o">.</span><span class="n">values</span>
@@ -15084,7 +15084,7 @@ Length: 85, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[7]:</div>
+    <div class="prompt output_prompt">Out[54]:</div>
 
 
 
@@ -15111,7 +15111,7 @@ Length: 85, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
+<div class="prompt input_prompt">In&nbsp;[55]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># visually look at the distribution of missing values</span>
@@ -15130,7 +15130,7 @@ Length: 85, dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[8]:</div>
+    <div class="prompt output_prompt">Out[55]:</div>
 
 
 
@@ -15169,7 +15169,7 @@ Length: 85, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># flag columns with 20% or more NaN values</span>
@@ -15212,7 +15212,7 @@ ALTER_HH 310267
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[57]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Eliminate the 6 columns that were in the 80th percentile for most NaN values</span>
@@ -15233,7 +15233,7 @@ ALTER_HH 310267
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[57]:</div>
 
 
 
@@ -15290,7 +15290,7 @@ ALTER_HH 310267
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[58]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Investigate patterns in the amount of missing data in each column.</span>
@@ -15412,7 +15412,7 @@ ZABEOTYP has 0.0% missing values
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Remove the outlier columns from the dataset. (You&#39;ll perform other data</span>
@@ -15985,7 +15985,7 @@ ZABEOTYP has 0.0% missing values
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="prompt input_prompt">In&nbsp;[60]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">az2</span><span class="o">.</span><span class="n">shape</span>
@@ -16001,7 +16001,7 @@ ZABEOTYP has 0.0% missing values
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[12]:</div>
+    <div class="prompt output_prompt">Out[60]:</div>
 
 
 
@@ -16072,7 +16072,7 @@ columns.</em></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># How much data is missing in each row of the dataset?</span>
@@ -16080,38 +16080,18 @@ columns.</em></p>
 <span class="n">num_columns</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">az2</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 <span class="c1"># print(num_columns)</span>
 
-<span class="n">nan_vals_rows</span> <span class="o">=</span> <span class="n">num_columns</span> <span class="o">-</span> <span class="n">az2</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-<span class="n">num_columns</span>
+<span class="c1"># nan_vals_rows = num_columns - az2.count(axis=1)</span>
+<span class="c1"># num_columns</span>
 </pre></div>
 
     </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[13]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>79</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[62]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Count the number of non-NaN values per row and create a new column with number of NaN values</span>
@@ -16125,7 +16105,7 @@ columns.</em></p>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[63]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># spot-check the newly created nan_values column</span>
@@ -16142,7 +16122,7 @@ columns.</em></p>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[63]:</div>
 
 
 
@@ -16179,7 +16159,7 @@ Name: nan_values, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[64]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Graph the distribution of NaN values across the dataset</span>
@@ -16233,7 +16213,7 @@ Name: nan_values, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[65]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Divide dataset</span>
@@ -16929,7 +16909,7 @@ Name: FINANZTYP, Length: 797077, dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Compare the distribution of values for at least five columns where there are</span>
@@ -16994,7 +16974,7 @@ ZABEOTYP has 0.0% missing values</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[68]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># compare_feats = [&#39;PLZ8_ANTG1&#39;, &#39;PLZ8_ANTG2&#39;, &#39;PLZ8_BAUMAX&#39;, &#39;ARBEIT&#39;, &#39;ORTSGR_KLS9&#39;, &#39;RELAT_AB&#39;]</span>
@@ -17177,7 +17157,7 @@ look similar. This may indicate that the rows above the threshold are truly outl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[69]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># How many features are there of each data type?</span>
@@ -17235,7 +17215,7 @@ There are 7 features of type mixed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[70]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">cat_features</span>
@@ -17251,7 +17231,7 @@ There are 7 features of type mixed
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[20]:</div>
+    <div class="prompt output_prompt">Out[70]:</div>
 
 
 
@@ -17288,7 +17268,7 @@ There are 7 features of type mixed
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="prompt input_prompt">In&nbsp;[71]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">binary_category</span> <span class="o">=</span> <span class="p">[]</span>
@@ -17331,7 +17311,7 @@ OST_WEST_KZ is a binary category
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[72]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">binary_category</span>
@@ -17347,7 +17327,7 @@ OST_WEST_KZ is a binary category
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[23]:</div>
+    <div class="prompt output_prompt">Out[72]:</div>
 
 
 
@@ -17364,7 +17344,7 @@ OST_WEST_KZ is a binary category
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[73]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">multi_category</span>
@@ -17380,7 +17360,7 @@ OST_WEST_KZ is a binary category
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[24]:</div>
+    <div class="prompt output_prompt">Out[73]:</div>
 
 
 
@@ -17422,7 +17402,7 @@ OST_WEST_KZ is a binary category
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">show_distribution</span><span class="p">(</span><span class="n">feature</span><span class="p">,</span> <span class="n">dset1</span><span class="p">):</span>    
@@ -17442,7 +17422,7 @@ OST_WEST_KZ is a binary category
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[75]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">binary_category</span><span class="p">:</span>
@@ -17903,7 +17883,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[76]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Assess categorical variables: which are binary, which are multi-level, and</span>
@@ -17989,7 +17969,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[77]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># drop multi-category features that don&#39;t fit my criteria for one hot encoding</span>
@@ -18354,7 +18334,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="prompt input_prompt">In&nbsp;[78]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># one hot encode OST_WEST_KZ and NATIONALITAET_KZ</span>
@@ -18369,7 +18349,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[79]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">y2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">az2_subset_clean</span><span class="o">.</span><span class="n">NATIONALITAET_KZ</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;NATIONALITAET_KZ&#39;</span><span class="p">)</span>
@@ -18549,7 +18529,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="prompt input_prompt">In&nbsp;[80]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">az2_subset_clean</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -18562,7 +18542,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">y2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
@@ -18575,10 +18555,10 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
     </div>
@@ -18591,32 +18571,13 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[37]:</div>
+    <div class="prompt output_prompt">Out[82]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Index([&#39;ALTERSKATEGORIE_GROB&#39;, &#39;ANREDE_KZ&#39;, &#39;FINANZ_MINIMALIST&#39;,
-       &#39;FINANZ_SPARER&#39;, &#39;FINANZ_VORSORGER&#39;, &#39;FINANZ_ANLEGER&#39;,
-       &#39;FINANZ_UNAUFFAELLIGER&#39;, &#39;FINANZ_HAUSBAUER&#39;, &#39;GREEN_AVANTGARDE&#39;,
-       &#39;HEALTH_TYP&#39;, &#39;LP_LEBENSPHASE_FEIN&#39;, &#39;LP_LEBENSPHASE_GROB&#39;,
-       &#39;NATIONALITAET_KZ&#39;, &#39;PRAEGENDE_JUGENDJAHRE&#39;, &#39;RETOURTYP_BK_S&#39;,
-       &#39;SEMIO_SOZ&#39;, &#39;SEMIO_FAM&#39;, &#39;SEMIO_REL&#39;, &#39;SEMIO_MAT&#39;, &#39;SEMIO_VERT&#39;,
-       &#39;SEMIO_LUST&#39;, &#39;SEMIO_ERL&#39;, &#39;SEMIO_KULT&#39;, &#39;SEMIO_RAT&#39;, &#39;SEMIO_KRIT&#39;,
-       &#39;SEMIO_DOM&#39;, &#39;SEMIO_KAEM&#39;, &#39;SEMIO_PFLICHT&#39;, &#39;SEMIO_TRADV&#39;, &#39;SOHO_KZ&#39;,
-       &#39;VERS_TYP&#39;, &#39;ANZ_PERSONEN&#39;, &#39;ANZ_TITEL&#39;, &#39;HH_EINKOMMEN_SCORE&#39;,
-       &#39;W_KEIT_KIND_HH&#39;, &#39;WOHNDAUER_2008&#39;, &#39;ANZ_HAUSHALTE_AKTIV&#39;,
-       &#39;ANZ_HH_TITEL&#39;, &#39;KONSUMNAEHE&#39;, &#39;MIN_GEBAEUDEJAHR&#39;, &#39;OST_WEST_KZ&#39;,
-       &#39;WOHNLAGE&#39;, &#39;CAMEO_INTL_2015&#39;, &#39;KBA05_ANTG1&#39;, &#39;KBA05_ANTG2&#39;,
-       &#39;KBA05_ANTG3&#39;, &#39;KBA05_ANTG4&#39;, &#39;KBA05_GBZ&#39;, &#39;BALLRAUM&#39;, &#39;EWDICHTE&#39;,
-       &#39;INNENSTADT&#39;, &#39;GEBAEUDETYP_RASTER&#39;, &#39;KKK&#39;, &#39;MOBI_REGIO&#39;,
-       &#39;ONLINE_AFFINITAET&#39;, &#39;REGIOTYP&#39;, &#39;KBA13_ANZAHL_PKW&#39;, &#39;PLZ8_ANTG1&#39;,
-       &#39;PLZ8_ANTG2&#39;, &#39;PLZ8_ANTG3&#39;, &#39;PLZ8_ANTG4&#39;, &#39;PLZ8_BAUMAX&#39;, &#39;PLZ8_HHZ&#39;,
-       &#39;PLZ8_GBZ&#39;, &#39;ARBEIT&#39;, &#39;ORTSGR_KLS9&#39;, &#39;RELAT_AB&#39;, &#39;nan_values&#39;,
-       &#39;OST_WEST_KZ_1&#39;, &#39;OST_WEST_KZ_2&#39;, &#39;NATIONALITAET_KZ_1.0&#39;,
-       &#39;NATIONALITAET_KZ_2.0&#39;, &#39;NATIONALITAET_KZ_3.0&#39;],
-      dtype=&#39;object&#39;)</pre>
+<pre>(797077, 73)</pre>
 </div>
 
 </div>
@@ -18627,7 +18588,7 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="prompt input_prompt">In&nbsp;[83]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># drop the original columns and keep the one hot encoded ones</span>
@@ -18637,6 +18598,39 @@ See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stabl
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[84]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(797077, 71)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
@@ -19536,7 +19530,50 @@ Name: cameo_life_stage, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">label_decade</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">2</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">40</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">4</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">50</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">5</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">7</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">60</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">8</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">9</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">70</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">10</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">13</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">80</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">]</span> <span class="o">&gt;=</span> <span class="mi">14</span> <span class="ow">and</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="mi">15</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">90</span>
+
+<span class="k">def</span> <span class="nf">label_movement</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">]</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">14</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="mi">1</span>  <span class="c1"># mainstream</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="mi">0</span>  <span class="c1"># avantgarde</span>
+    
+<span class="k">def</span> <span class="nf">label_econ</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;CAMEO_INTL_2015&#39;</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;CAMEO_INTL_2015&#39;</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>
+
+<span class="k">def</span> <span class="nf">label_life_stage</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;CAMEO_INTL_2015&#39;</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>    
+        <span class="k">return</span> <span class="n">row</span><span class="p">[</span><span class="s1">&#39;CAMEO_INTL_2015&#39;</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+    
+    <span class="k">return</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span>  
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">clean_data</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -19551,19 +19588,183 @@ Name: cameo_life_stage, dtype: object</pre>
     <span class="c1"># Put in code here to execute all main cleaning steps:</span>
     <span class="c1"># convert missing value codes into NaNs, ...</span>
     
+    <span class="c1"># Identify missing or unknown data values and convert them to NaNs.</span>
+    <span class="k">for</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">feat_info</span><span class="o">.</span><span class="n">itertuples</span><span class="p">():</span>
+        <span class="n">attr</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">attribute</span>
+        <span class="n">pattern</span> <span class="o">=</span> <span class="n">row</span><span class="o">.</span><span class="n">missing_or_unknown</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="n">values</span> <span class="o">=</span> <span class="n">pattern</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span>
+        <span class="n">parsed_vals</span> <span class="o">=</span> <span class="p">[]</span>    
+        <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">values</span><span class="p">:</span>
+            <span class="n">neg_mult</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="n">neg_mult</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">v</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;-&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">v</span><span class="o">.</span><span class="n">isdecimal</span><span class="p">():</span>
+                <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">*</span> <span class="n">neg_mult</span>
+                <span class="n">parsed_vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">parsed_vals</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+        <span class="n">df</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">attr</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">parsed_vals</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">)</span>    
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;replaced various formats of unknown data values into standard NaN&quot;</span><span class="p">)</span>        
     
     <span class="c1"># remove selected columns and rows, ...</span>
+    <span class="n">cols_too_many_nans</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;TITEL_KZ&#39;</span><span class="p">,</span> <span class="s1">&#39;AGER_TYP&#39;</span><span class="p">,</span> <span class="s1">&#39;KK_KUNDENTYP&#39;</span><span class="p">,</span> <span class="s1">&#39;KBA05_BAUMAX&#39;</span><span class="p">,</span> <span class="s1">&#39;GEBURTSJAHR&#39;</span><span class="p">,</span> <span class="s1">&#39;ALTER_HH&#39;</span><span class="p">]</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">cols_too_many_nans</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1"># rows</span>
+    <span class="n">num_columns</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;nan_values&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">num_columns</span> <span class="o">-</span> <span class="n">x</span><span class="o">.</span><span class="n">count</span><span class="p">(),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">THRESHOLD</span> <span class="o">=</span> <span class="mi">20</span>
 
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;nan_values&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">THRESHOLD</span><span class="p">]</span>
+    
+    <span class="n">cols_multi_cat_to_del</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;CJT_GESAMTTYP&#39;</span><span class="p">,</span><span class="s1">&#39;FINANZTYP&#39;</span><span class="p">,</span><span class="s1">&#39;GFK_URLAUBERTYP&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;LP_FAMILIE_FEIN&#39;</span><span class="p">,</span><span class="s1">&#39;LP_FAMILIE_GROB&#39;</span><span class="p">,</span><span class="s1">&#39;LP_STATUS_FEIN&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;LP_STATUS_GROB&#39;</span><span class="p">,</span> <span class="s1">&#39;SHOPPER_TYP&#39;</span><span class="p">,</span><span class="s1">&#39;ZABEOTYP&#39;</span><span class="p">,</span><span class="s1">&#39;GEBAEUDETYP&#39;</span><span class="p">,</span>
+                             <span class="s1">&#39;CAMEO_DEUG_2015&#39;</span><span class="p">,</span><span class="s1">&#39;CAMEO_DEU_2015&#39;</span><span class="p">]</span>
+    
+    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">cols_multi_cat_to_del</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     
     <span class="c1"># select, re-encode, and engineer column values.</span>
-
+    <span class="n">y</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">OST_WEST_KZ</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;OST_WEST_KZ&#39;</span><span class="p">)</span>    
+    <span class="n">y2</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">get_dummies</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">NATIONALITAET_KZ</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s1">&#39;NATIONALITAET_KZ&#39;</span><span class="p">)</span>
+    
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">y</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span> <span class="n">y2</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="c1"># drop one-hot encoded original columns</span>
+    <span class="n">one_hot_encoded</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;OST_WEST_KZ&#39;</span><span class="p">,</span> <span class="s1">&#39;NATIONALITAET_KZ&#39;</span><span class="p">]</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">one_hot_encoded</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    
+    <span class="c1"># convert mixed-type columns</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;decade&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">label_decade</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>    
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;movement&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">label_movement</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cameo_econ_stage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">label_econ</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>    
+    <span class="n">df</span><span class="p">[</span><span class="s1">&#39;cameo_life_stage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="n">label_life_stage</span><span class="p">(</span><span class="n">x</span><span class="p">),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    
+    <span class="n">mixed_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;PRAEGENDE_JUGENDJAHRE&#39;</span><span class="p">,</span><span class="s1">&#39;CAMEO_INTL_2015&#39;</span><span class="p">]</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">mixed_cols</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
     
     <span class="c1"># Return the cleaned dataframe.</span>
-    
+    <span class="k">return</span> <span class="n">df</span>
     
 </pre></div>
 
     </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">clean_data</span><span class="p">(</span><span class="n">azdias</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>replaced various formats of unknown data values into standard NaN
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stderr output_text">
+<pre>/opt/conda/lib/python3.6/site-packages/pandas/core/frame.py:3697: SettingWithCopyWarning: 
+A value is trying to be set on a copy of a slice from a DataFrame
+
+See the caveats in the documentation: http://pandas.pydata.org/pandas-docs/stable/indexing.html#indexing-view-versus-copy
+  errors=errors)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[49]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(797077, 73)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[18]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(797077, 80)</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
