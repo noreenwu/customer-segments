@@ -13222,7 +13222,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[58]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Load in the general demographics data.</span>
@@ -19888,7 +19888,7 @@ Name: cameo_life_stage, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">label_decade</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
@@ -19931,7 +19931,7 @@ Name: cameo_life_stage, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[60]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">clean_data</span><span class="p">(</span><span class="n">df</span><span class="p">):</span>
@@ -20022,7 +20022,7 @@ Name: cameo_life_stage, dtype: object</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">clean_data</span><span class="p">(</span><span class="n">azdias</span><span class="p">)</span>
@@ -20082,7 +20082,7 @@ after dropping one-hot-encoded columns (797077, 71)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
@@ -20098,7 +20098,7 @@ after dropping one-hot-encoded columns (797077, 71)
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -20126,14 +20126,28 @@ after dropping one-hot-encoded columns (797077, 71)
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Even though many columns and rows were eliminated because of missing values, there are still a lot
+of missing values as seen be re-graphing the nan values. Perhaps I could have removed more columns
+and more rows but this would result in the loss of a lot of information that was actually collected.</p>
+<p>The remaining missing values may be replaced with the median or mean or mode (most frequent). Most
+frequent is a good choice for categorical data, which is mostly what we have, on reviewing the
+descriptions of columns.</p>
+<p>Many ML algorithms do not perform well when there are missing values. In particular, PCA cannot
+tolerate any missing data points. For this reason, the sklearn Imputer was used to fill the remaining
+missing values in the data set.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[64]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">Imputer</span>
-
-<span class="n">imputer</span> <span class="o">=</span> <span class="n">Imputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nan_vals</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">-</span> <span class="n">df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -20143,10 +20157,10 @@ after dropping one-hot-encoded columns (797077, 71)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[65]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">imputer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nan_vals</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -20159,13 +20173,23 @@ after dropping one-hot-encoded columns (797077, 71)
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[65]:</div>
+    <div class="prompt output_prompt">Out[8]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>Imputer(axis=0, copy=True, missing_values=nan, strategy=&#39;median&#39;, verbose=0)</pre>
+<pre>ALTERSKATEGORIE_GROB      2773
+ANREDE_KZ                    0
+FINANZ_MINIMALIST            0
+FINANZ_SPARER                0
+FINANZ_VORSORGER             0
+FINANZ_ANLEGER               0
+FINANZ_UNAUFFAELLIGER        0
+FINANZ_HAUSBAUER             0
+GREEN_AVANTGARDE             0
+HEALTH_TYP               36338
+dtype: int64</pre>
 </div>
 
 </div>
@@ -20176,10 +20200,1781 @@ after dropping one-hot-encoded columns (797077, 71)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[67]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_median</span> <span class="o">=</span> <span class="n">imputer</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nan_vals_sorted</span> <span class="o">=</span> <span class="n">nan_vals</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">vals</span> <span class="o">=</span> <span class="n">nan_vals_sorted</span><span class="o">.</span><span class="n">values</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">nan_vals_sorted</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[10]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>REGIOTYP               64155
+KKK                    64155
+W_KEIT_KIND_HH         58715
+LP_LEBENSPHASE_FEIN    49487
+LP_LEBENSPHASE_GROB    46679
+KBA05_ANTG2            39194
+KBA05_ANTG3            39194
+MOBI_REGIO             39194
+KBA05_ANTG1            39194
+KBA05_ANTG4            39194
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;NaN Values x Number of Features&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">vals</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="mi">14</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(array([ 46.,   5.,   1.,   0.,   7.,   0.,   1.,   2.,   6.,   0.,   2.,
+          0.,   1.,   2.]),
+ array([     0. ,   4582.5,   9165. ,  13747.5,  18330. ,  22912.5,
+         27495. ,  32077.5,  36660. ,  41242.5,  45825. ,  50407.5,
+         54990. ,  59572.5,  64155. ]),
+ &lt;a list of 14 Patch objects&gt;)</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">Imputer</span>
+
+<span class="n">fill_missing</span> <span class="o">=</span> <span class="n">Imputer</span><span class="p">(</span><span class="n">missing_values</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">nan</span><span class="p">,</span> <span class="n">strategy</span><span class="o">=</span><span class="s1">&#39;most_frequent&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># imputer.fit(df)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_cleaned_impute</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">fill_missing</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_cleaned_impute</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_cleaned_impute</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">index</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">fill_missing</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[36]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>63</th>
+      <th>64</th>
+      <th>65</th>
+      <th>66</th>
+      <th>67</th>
+      <th>68</th>
+      <th>69</th>
+      <th>70</th>
+      <th>71</th>
+      <th>72</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>7.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>70.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>70.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>50.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>70.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>50.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>6.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>70.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>8.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>8.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>60.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>6.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>90.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>70.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>10.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>8.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>70.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>19.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>70.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>0.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>60.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>70.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>50.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>70.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>797047</th>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>50.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>797048</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>797049</th>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>60.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>797050</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>797051</th>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>70.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>797052</th>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>797053</th>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>797054</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>797055</th>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>797056</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+    </tr>
+    <tr>
+      <th>797057</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>797058</th>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>797059</th>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>14.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>70.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>797060</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>797061</th>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>50.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>797062</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+    </tr>
+    <tr>
+      <th>797063</th>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>40.0</td>
+      <td>0.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>797064</th>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>70.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>797065</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>90.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>797066</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>70.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>797067</th>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>70.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>797068</th>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>50.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>797069</th>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>797070</th>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+    </tr>
+    <tr>
+      <th>797071</th>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>797072</th>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>3.0</td>
+      <td>...</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>797073</th>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>3.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>4.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>80.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>797074</th>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>1.0</td>
+      <td>2.0</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>797075</th>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>3.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>90.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>1.0</td>
+    </tr>
+    <tr>
+      <th>797076</th>
+      <td>4.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>2.0</td>
+      <td>5.0</td>
+      <td>2.0</td>
+      <td>1.0</td>
+      <td>5.0</td>
+      <td>0.0</td>
+      <td>2.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>1.0</td>
+      <td>1.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>50.0</td>
+      <td>1.0</td>
+      <td>4.0</td>
+      <td>3.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>797077 rows × 73 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># df_median = imputer.transform(df)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[37]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># df_median</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
@@ -20194,6 +21989,11 @@ after dropping one-hot-encoded columns (797077, 71)
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># If you&#39;ve not yet cleaned the dataset of all NaN values, then investigate and</span>
 <span class="c1"># do that now.</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">StandardScaler</span>
+
+<span class="n">ss</span> <span class="o">=</span> <span class="n">StandardScaler</span><span class="p">()</span>
+<span class="n">df_ss</span> <span class="o">=</span> <span class="n">ss</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -20203,37 +22003,18 @@ after dropping one-hot-encoded columns (797077, 71)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[70]:</div>
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Apply feature scaling to the general population demographics data.</span>
-<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="k">import</span> <span class="n">MinMaxScaler</span>
+<span class="c1"># from sklearn.preprocessing import MinMaxScaler</span>
 
-<span class="n">scaler</span><span class="o">=</span><span class="n">MinMaxScaler</span><span class="p">()</span>
-<span class="n">scaler</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">df_median</span><span class="p">)</span>
+<span class="c1"># scaler=MinMaxScaler()</span>
+<span class="c1"># scaler.fit(df_median)</span>
+<span class="c1"># df_scaled=scaler.transform(df_median)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[70]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>MinMaxScaler(copy=True, feature_range=(0, 1))</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -20243,7 +22024,7 @@ after dropping one-hot-encoded columns (797077, 71)
 <div class="prompt input_prompt">In&nbsp;[71]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_scaled</span><span class="o">=</span><span class="n">scaler</span><span class="o">.</span><span class="n">transform</span><span class="p">(</span><span class="n">df_median</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
@@ -20253,45 +22034,13 @@ after dropping one-hot-encoded columns (797077, 71)
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[75]:</div>
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_scaled</span>
+<div class=" highlight hl-ipython3"><pre><span></span> 
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[75]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>array([[ 0.        ,  1.        ,  0.        , ...,  1.        ,
-         1.        ,  0.        ],
-       [ 0.66666667,  1.        ,  0.        , ...,  0.        ,
-         0.25      ,  0.75      ],
-       [ 1.        ,  1.        ,  0.75      , ...,  1.        ,
-         0.        ,  0.25      ],
-       ..., 
-       [ 0.33333333,  1.        ,  0.25      , ...,  1.        ,
-         0.25      ,  0.75      ],
-       [ 0.        ,  0.        ,  0.        , ...,  1.        ,
-         1.        ,  0.        ],
-       [ 1.        ,  0.        ,  0.75      , ...,  1.        ,
-         0.75      ,  0.5       ]])</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -20300,6 +22049,12 @@ after dropping one-hot-encoded columns (797077, 71)
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h3 id="Discussion-2.1:-Apply-Feature-Scaling">Discussion 2.1: Apply Feature Scaling<a class="anchor-link" href="#Discussion-2.1:-Apply-Feature-Scaling">&#182;</a></h3><p>(Double-click this cell and replace this text with your own text, reporting your decisions regarding feature scaling.)</p>
+<p>ML algorithms perform better when the data is scaled to a standard range. Data that is not scaled can
+throw the algorithms off, as points will not be uniformly spaced apart, and wildly different conclusions
+may be drawn.</p>
+<p>The two scalers considered here were StandardScaler and MinMax. StandardScaler is better applied when it is known that the data distribution is normal. Based on the graphs of some of the features above, we probably don't have data in this form. (do more graphs?) Even though an effort was made to remove the most extreme outliers, it is
+likely that outliers still remain in this data set and by choosing MinMax I am hoping to minimze their
+influence on the outcome.</p>
 
 </div>
 </div>
