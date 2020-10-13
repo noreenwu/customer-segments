@@ -21453,13 +21453,7 @@ are used but 90% of the variance is explained by using the first 35 components.<
 <div class="prompt input_prompt">In&nbsp;[22]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">component_analysis</span><span class="p">(</span><span class="n">pca</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="p">):</span>
-        <span class="k">return</span> <span class="s2">&quot;no info&quot;</span>
-    
-    <span class="n">weight_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;weight&#39;</span><span class="p">:</span> <span class="n">pca</span><span class="o">.</span><span class="n">components_</span><span class="p">[</span><span class="n">i</span><span class="p">]},</span> <span class="n">index</span><span class="o">=</span><span class="n">df_ss</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">weight_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">weight_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;weight&#39;</span><span class="p">])</span><span class="o">.</span><span class="n">tail</span><span class="p">(</span><span class="mi">5</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span>
 </pre></div>
 
     </div>
@@ -21493,7 +21487,12 @@ are used but 90% of the variance is explained by using the first 35 components.<
 <div class="prompt input_prompt">In&nbsp;[90]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">wdf</span> <span class="o">=</span> <span class="n">get_component_important_weights</span><span class="p">(</span><span class="n">pca</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Map weights for the first principal component to corresponding feature names</span>
+<span class="c1"># and then print the linked values, sorted by weight.</span>
+<span class="c1"># HINT: Try defining a function here or in a new cell that you can reuse in the</span>
+<span class="c1"># other cells.</span>
+
+<span class="n">wdf</span> <span class="o">=</span> <span class="n">get_component_important_weights</span><span class="p">(</span><span class="n">pca</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -21632,6 +21631,14 @@ are used but 90% of the variance is explained by using the first 35 components.<
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Analysis of weights in first PCA component: These features are connected to the types of homes found in a an area (1-2 person/10+ family), money-saver tendencies, financial success, how mobile (MOBI_REGI). When the features with negative weight values decrease, the strength or influence of this component increases. When the features with positive weight values increase, this PCA component's weight also increases. But the range in weight values for this component are not particulatly high, at -.2 to + .2. This correlates with the fact that this PCA component by itself accounts for just 15.9% of the total variance.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[93]:</div>
@@ -21680,6 +21687,15 @@ are used but 90% of the variance is explained by using the first 35 components.<
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Analysis of second PCA component: These features that comprise the second PCA component are related to personality as influenced by upbringing -- relgious, dominating movement of a person's youth, whether the person tends towards money-saving, dutiful, traditional-minded -- are all features inversely related to the component. As they decrease, the component increases, and these features tend to be linked, in that they will increase and decrease together. The features for likelihood of returning merchandise, being likely to be financially prepared, being event-oriented, etc -- are positively correlated with the PCA component: as they increase so does the influence of the component.  These positively weighted features tend to increase and decrease together and in opposition to those that are negatively weighted.</p>
+<p>There is slightly more variability in the positively weighted features in this component compared to the first PCA component.</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[95]:</div>
@@ -21727,6 +21743,14 @@ are used but 90% of the variance is explained by using the first 35 components.<
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Analysis of third PCA component: In this component, we have features for male/female, combative attitude, dominant-minded, critical-minded and rational as negative weights, with male/female and combative attitude being relatively strong influencers. Positively weighted features include low financial interest, cultural-mindedness, family-minded, socially-minded, and dreamful. Four of the five positive weights are features that measure personality typology. These features correlate with one another, suggesting that those with one of these traits will likely share the other positively-weighted traits.</p>
+
+</div>
+</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
@@ -22675,10 +22699,7 @@ SEMIO_VERT         0.346898
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Map weights for the first principal component to corresponding feature names</span>
-<span class="c1"># and then print the linked values, sorted by weight.</span>
-<span class="c1"># HINT: Try defining a function here or in a new cell that you can reuse in the</span>
-<span class="c1"># other cells.</span>
+<div class=" highlight hl-ipython3"><pre><span></span>
 </pre></div>
 
     </div>
